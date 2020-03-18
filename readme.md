@@ -390,3 +390,36 @@ This function shows a description of the result object like the following figure
   std::cout<<r<<std::endl;  \\ r is a Result object
   ```
 
+# Other Functions
+You must implement the following functions too. They all must be implemented in **aphw3.cpp** and **aphw3.h** files.
+
+* 
+  ```c++
+  Dataset loadFuncDataset(const char* filename);
+  ```
+This function gets a csv filename and turn it into a dataset. Note that it is assumed that the data is for a function with single output and multiple (or single) input. Each row of the csv file is a data sample and the last column is the target, other columns are the input (like previous homeworks).
+
+* 
+  ```c++
+  std::vector<Result> testNeuralNets(Dataset& dataset, std::vector<size_t>& hidden_neurons, double lr=0.01, size_t max_iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
+  ```
+This function generates a bunch of neural networks with a given dataset. For each neural network, the no of hidden layers must be one of the numbers in the ```hidden_neurons``` vector given to the function. In other words, for each number in ```hidden_neurons``` vector, you generate a NeuralNet object with than number of hidden neurons. Each neural net must train. Hence you have a bunch of results. Just return a vector containing those results.
+
+*  
+  ```c++
+  Result findBestNeuralNet(Dataset& dataset, std::vector<size_t>& hidden_neurons, double lr=0.01, size_t max_iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
+  ```
+Like the last function, you generate a bunch of neural networks and then return the best result (the one with the least test loss).
+
+* 
+  ```c++
+  void estimateFunction(const char* filename, size_t hidden_neurons_no);
+  ```
+This function gets a csv filename, generate a dataset from it. After that, it creates a neural net with the given number of hidden layers (all other arguments of the neural net must be default ones) and show the comparison between neural net outputs and target values in a beautiful way like the below figure. Note that it is assumed that the function has a single variable output and can have as many inputs as possible.
+
+  <img src="https://drive.google.com/uc?id=1FcHBmWlQHC4--5MPRzvWWPWCQtCuBFxy" width="500">
+  
+
+  <img src="https://drive.google.com/uc?id=19GvUC4-rK4yi9QUsxHZ5LpVWVxto1Dlw" width="400">
+
+
