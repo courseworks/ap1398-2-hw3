@@ -80,7 +80,7 @@ Dimension of inputs of dataset.
   ```c++
   size_t target_dim;
   ```
-Dimension of targets of dataset.
+  Dimension of targets of dataset.
 
 Dataset class must have the following member functions too.
 
@@ -328,9 +328,10 @@ Now you can simply implement the NeuralNet class. Your NeuralNet class must have
   <img src="stuff/hw4f10.png" width="400" class="center" />
 
 *  The following code should also do just like the ```show()``` method of your class.
-  ```c++
-  std::cout<<nn<<std::endl;  \\ nn is a NeuralNet object
-  ```
+  
+    ```c++
+    std::cout<<nn<<std::endl;  \\ nn is a NeuralNet object
+    ```
   
 # Result Class
 This tiny class gives a report of the training process of a neural network. It has the following member variables.
@@ -387,9 +388,10 @@ The following member functions are to be implemented.
   <img src="stuff/hw4f10.png" width="400" class="center" />
 
 *  The following code should also do just like the ```show()``` method of your class.
-  ```c++
-  std::cout<<r<<std::endl;  \\ r is a Result object
-  ```
+  
+    ```c++
+    std::cout<<r<<std::endl;  \\ r is a Result object
+    ```
 
 # Other Functions
 You must implement the following functions too. They all must be implemented in **aphw3.cpp** and **aphw3.h** files.
@@ -419,8 +421,8 @@ You must implement the following functions too. They all must be implemented in 
   This function gets a csv filename, generate a dataset from it. After that, it creates a neural net with the given number of hidden layers (all other arguments of the neural net must be default ones) and show the comparison between neural net outputs and target values in a beautiful way like the below figure. Note that it is assumed that the function has a single variable output and can have as many inputs as possible.
 
   <img src="stuff/hw4f8.png" width="400" class="center" />
-  
 
-  <img src="stuff/meme3.jpg" width="400" class="center" />
+
+<img src="stuff/meme3.jpg" width="400" class="center" />
 
 
