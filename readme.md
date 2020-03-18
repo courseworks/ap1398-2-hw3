@@ -26,55 +26,55 @@ Dataset class must have the following member variables. No need to mention that 
   ```c++
   Matrix inputs;
   ```
-Matrix of all input parts of samples of dataset. Each column of this matrix is a sample input.
+  Matrix of all input parts of samples of dataset. Each column of this matrix is a sample input.
 
 *
   ```c++
   Matrix targets;
-  ```
-Matrix of all target parts of samples of dataset. Each column of this matrix is a sample target.
+  ``` 
+  Matrix of all target parts of samples of dataset. Each column of this matrix is a sample target.
 
 *  
   ```c++
   Matrix train_inputs;
   ```
-Matrix of inputs of the *train* part of dataset. Each column of this matrix is a sample input of the *train* part.
+  Matrix of inputs of the *train* part of dataset. Each column of this matrix is a sample input of the *train* part.
 
 *  
   ```c++
   Matrix train_targets;
   ```
-Matrix of targets of the *train* part of dataset. Each column of this matrix is a sample target of the *train* part.
+  Matrix of targets of the *train* part of dataset. Each column of this matrix is a sample target of the *train* part.
 
 *  
   ```c++
   Matrix test_inputs;
   ```
-Matrix of inputs of the *test* part of dataset. Each column of this matrix is a sample input of the *test* part.
+  Matrix of inputs of the *test* part of dataset. Each column of this matrix is a sample input of the *test* part.
 
 *  
   ```c++
   Matrix test_targets;
   ```
-Matrix of targets of the *test* part of dataset.  Each column of this matrix is a sample target of the *test* part.
+  Matrix of targets of the *test* part of dataset.  Each column of this matrix is a sample target of the *test* part.
 
 *  
   ```c++
   double percentage{70};
   ```
-This variable tells the class how to divide data into train and test parts. When it is 70, for example, it takes 70% of data randomly into the train part and the other 30% into the test part of dataset.
+  This variable tells the class how to divide data into train and test parts. When it is 70, for example, it takes 70% of data randomly into the train part and the other 30% into the test part of dataset.
 
 *  
   ```c++
   size_t no_of_samples;
   ```
-Number of all samples in the dataset.
+  Number of all samples in the dataset.
 
 *
   ```c++
   size_t input_dim;
   ```
-Dimension of inputs of dataset.
+  Dimension of inputs of dataset.
 
 *  
   ```c++
@@ -88,7 +88,7 @@ Dataset class must have the following member functions too.
   ```c++
   Dataset(Matrix inputs, Matrix targets, double percentage=70);
   ```
-Note that in this constructor, you must not change the order of samples of dataset in the ```inputs``` and ```targets``` variables.
+  Note that in this constructor, you must not change the order of samples of dataset in the ```inputs``` and ```targets``` variables.
 
 *  
   ```c++
