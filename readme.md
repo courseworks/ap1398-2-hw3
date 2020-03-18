@@ -15,7 +15,7 @@ Deadline: Wednesday, 13 Farvardin - 23:00
 #  Introduction
 In this homework, you'll get familiar a little with **neural networks**. Also, you'll estimate some functions using them. Isn't that wonderful?! In this way, you must use the **Matrix** class implemented in the last homework by yourself. You can also change it if you think it's necessary. In the end, you must do all your codes in **Matrix**, **dataset**, **result**, **neuralnet** and **aphw3** header and cpp files.
 
-<img src="https://drive.google.com/uc?id=1fkXeKZZzZBagTWpYo3WCGKOgnLudTHwT" width="400">
+<img src="stuff/meme1.jpg" width="400" class="center" />
 
 #  Dataset Class
 In this class, you'll manage whatever we need for storing our data. Each data element or sample in our dataset is composed of an input part and a target part. We give the inputs to our neural net and we expect it to generate an output similar to the targets. That's all. Since we're trying to train a neural net, we need a dataset. We divide our dataset into 2 parts: **Train** and **Test**. We use the *train* data to teach the neural network about the patterns embedded in our data. After that, we must test our neural network to see if it has learned enough or not. So we use the *test* data. 
@@ -149,7 +149,7 @@ Note that in this constructor, you must not change the order of samples of datas
   ```
 This function shows some properties of the dataset, such as number of samples, number of train samples and test samples, input and target dimensions in a beautiful way like the following figure.
 
-  <img src="https://drive.google.com/uc?id=15CbgPc3BtHncGGGBqT04c5E4J5F-hCp0" width="400">
+  <img src="stuff/hw4f9.png" width="400" class="center" />
 
 
 *  ‍‍‍‍‍You must also write the ```[ ]```operator for your class such that, for example, for a dataset object of this class ```dataset[10][0]``` returns the input part of the 11-th sample of dataset (```inputs``` variable) as a Matrix object and ```dataset[10][1]``` returns the target part of the 11-th sample of dataset (```targets``` variable) as a Matrix object. So, the following code must return the value of the first dimension of the input part of the 11-th sample of dataset.
