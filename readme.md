@@ -172,4 +172,162 @@ This function shows some properties of the dataset, such as number of samples, n
 <img src="https://drive.google.com/uc?id=1kfszEBX0bclfNw0avfD7Q3L52x124UTO" width="400">
 
 
+# NeuralNet Class
+In this class, you'll implement a neural network so that you can train it easily. Isn't that amazing?! It's good to first talk a little about neural nets and their training algorithm. To make a long story short, you can look at a neural net like a black box. It gets some inputs and some targets (desired outputs) and tries to find the mapping between the inputs and targets. So that whenever you give it an input, it can generate a proper output for you (if trained well before!). For example, suppose you create a neural net to find out if there is any ball in a given image. The input of your neural net is an image and the output is a number (1 if there is ball in the image and 0 otherwise). You prepare a dataset of many images, some containing a ball. So each sample of your dataset has two parts: the input part is an image and the target part is a number telling that if there is a ball in the image. So your neural net gets the dataset and tries to learn the pattern embedded in it. This process is called **training**. After the neural net has been trained enough, it can say that is there any ball in a given image or not. 
+
+## Notation and Literature
+The fundamental unit of each neural network is called **Neuron**. Each neuron gets an input vector (**p**) it multiplies each element of the input in a scalar. These scalars together make the **Weights** of the neuron. The products of input elements and weights are summed and a bias term is added to the result. So far, the result is shown by *n*. Then this *n* goes into a function (called **Activation Function**) and generates the ouput of the neuron (*a*). Below, you can see the model of a neuron.
+
+<img src="https://drive.google.com/uc?id=1OJBpPxkd_ZJ8WIYGZQTzsv1Au0sNdJq1" width="400">
+
+A bunch of neurons with the same input vector **p** make a **layer**. So we can form a vector **n** and a vector **a** for the whole layer. Each element of these vectors corresponds to one of the neurons. So **a** is the ouput vector of the layer (output of all neurons stacked together in a vector). The output of a layer can be the input to the next layer and so on. So we use superscripts for the no of layers in our notation.
+
+<img src="https://drive.google.com/uc?id=1Q9zi7EiyzRjVfCqTLHwmOToBkjS0kJ-d" width="350">
+
+## Forward Propagation
+As mentiond before, a neural net gets an input and generate an output from that. But how? Well the input is given to the first layer and the output of the first layered is found after that. The the output of the first layer goes to the second layer as its input. The output of the second layer is then found easily. This process goes on until the last layer ouput is found which is the output of the neural net. This process is called **forward propagation**. Below you can see the relations of forward propagation for a network with two layers.
+
+<img src="https://drive.google.com/uc?id=1z-2hSFdh97qmkHjymOA_UT8D6wzLf4VQ" width="350">
+
+## Backpropagation
+The main problem to solve for a neural net is to find the proper weights and biases. As you can remember from homework 1, updating weights and biases is done by minimizing a loss function. In this homework, the loss function is just the same as the one in homework 1 which is average mean square of errors. This process is called **backpropagation**. We just consider backpropagation for a network with 2 layers here. The general case would be discussed in the TA class soon. Given a sample input and a sample target, you update the weights as below.
+
+<img src="https://drive.google.com/uc?id=1KcUlpBZugRQY9RyYdXBRKj12OCaVVj4C" width="350">
+
+
+<img src="https://drive.google.com/uc?id=1xNMxHYWpysumeI4nfKWdUxMZT2JGEk2o" width="350">
+
+## Training the Network
+For the training process, in each iterations we do the followings:
+
+  We choose a random sample from the dataset. After giving the sample input to the neural net, forward propagation is done so that the network output is generated. After that backpropagation is done with the sample target and the weights and biases are updated. Obviously, with a proper learning rate, in each iteration, the loss function must get smaller and smaller.
+
+##  Some other notes
+In all above discussion we did not mention what our activation functions (f) can be. For each layer we assume all the neurons have the same activation function. We use one of the following 2 famous activation functions for each layer.
+  * Sigmoid
+
+  <img src="https://drive.google.com/uc?id=1POhOrQchFKrfHcLxHQ5AVLTcsa3cGQJP" width="250">
+
+  * Linear
+  <img src="https://drive.google.com/uc?id=1sN86v_BAujjmJ-FChgwoOlb9qfsdFbVI" width="120">
+
+Now you can simply implement the NeuralNet class. Your NeuralNet class must have the following member variables.
+
+*  
+  ```c++
+      Matrix w1; // Weights of layer 1
+      Matrix w2; // Weights of layer 2
+      Matrix b1; // Biases of layer 1
+      Matrix b2; // Biases of layer 2
+      Matrix a1; // Output of layer 1
+      Matrix a2; // Output of layer 2
+      Matrix n1; // n vector for layer 1
+      Matrix n2; // n vector for layer 2
+      Matrix s1; // s vector for layer 1
+      Matrix s2; // s vector for layer 2 
+  ```
+As mentioned above in the training algorithm.
+
+*  
+  ```c++
+  const char* af1{"Sigmoid"};
+  const char* af2{"Sigmoid"};
+  ```
+Activation functions of the second and the third layer. It can be any of the following activation functions.
+  *  "Sigmoid"
+  *  "Linear"
+
+* 
+  ```c++
+  size_t hidden_layer_neurons{3};
+  ```
+No of neurons in the hidden layer of the network.
+
+*  
+  ```c++
+  double lr{0.01};
+  ```
+Learning rate for the training algorithm.
+
+*  
+  ```c++
+  size_t max_iters{1000};
+  ```
+Maximum iterations before convergence to stop.
+
+*  
+  ```c++
+  double min_loss{0.01};
+  ```
+Minimum test loss before convergence to stop.
+
+*  
+  ```c++
+  Dataset dataset;
+  ```
+Given dataset to the network.
+
+Your NeuralNet class should also have the following member functions.
+
+*  
+  ```c++
+  NeuralNet(Dataset dataset, size_t hidden_layer_neurons, const char* f1 = "Sigmoid", const char* f2 = "Linear", double lr = 0.1, size_t max_iters = 10000, double min_loss=0.01);
+  ```
+*  
+  ```c++
+  Matrix forwardPropagate(Matrix& input);
+  ```
+This function gets a sample input for the neural net and do the forward propagations process. Finally, it returns the output of the network as a Matrix object.
+
+*  
+  ```c++
+  void backPropagate(Matrix& input, Matrix& target);
+  ```
+This functions does the backpropagation for a sample data. It gets a sample input and its corresponding target and does the forementioned backpropagation algorithm to update weights and biases.
+
+*  
+  ```c++
+  double trainLoss();
+  ```
+This function computes the average loss function on the train part of dataset.
+
+*  
+  ```c++
+  double testLoss();
+  ```
+This function computes the average loss function on the test part of dataset.
+
+*  
+  ```c++
+      void setW1(Matrix& w);
+      void setW2(Matrix& w);
+      void setB1(Matrix& b);
+      void setB2(Matrix& b);
+      Matrix getW1();
+      Matrix getW2();
+      Matrix getB1();
+      Matrix getB2();
+  ```
+Setter and getter functions of weights and biases of the network.
+
+* 
+  ```c++
+  Result fit();
+  ```
+This function does all the training process of the neural network. In each iteration, it takes a random sample from the *train* part of the dataset. It does a forward propagation with it and afterward it backpropagates to update weights and biases. And these operations is repeated for each iteration until convergence.
+
+  After training has been done, it makes a ```Result``` object (descripted below) in which it gives a report of the training process.
+
+* 
+  ```c++
+  void show();
+  ``` 
+This function shows a description of the neural network like the following figure.
+
+  <img src="https://drive.google.com/uc?id=1xnTRHw0UuZ3QabzI4tEpTySIoLbrvKi5" width="400">
+
+*  The following code should also do just like the ```show()``` method of your class.
+  ```c++
+  std::cout<<nn<<std::endl;  \\ nn is a NeuralNet object
+  ```
 
