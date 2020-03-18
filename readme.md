@@ -147,7 +147,7 @@ Note that in this constructor, you must not change the order of samples of datas
   ```c++
   void show();
   ```
-This function shows some properties of the dataset, such as number of samples, number of train samples and test samples, input and target dimensions in a beautiful way like the following figure.
+  This function shows some properties of the dataset, such as number of samples, number of train samples and test samples, input and target dimensions in a beautiful way like the following figure.
 
   <img src="stuff/hw4f9.png" width="400" class="center" />
 
@@ -162,7 +162,7 @@ This function shows some properties of the dataset, such as number of samples, n
   ```c++
   Dataset operator+(const Dataset& dataset);
   ```
- You must also implement the **+** operator such that we can merge two datasets together. In this case, the result input must be a concatenation of both given datasets inputs. Also, the result target must be a concatenation of both given datasets targets. Seperation of data samples into *train* and *test* parts must also be done randomly again (separation percentage is the default 70).
+  You must also implement the **+** operator such that we can merge two datasets together. In this case, the result input must be a concatenation of both given datasets inputs. Also, the result target must be a concatenation of both given datasets targets. Seperation of data samples into *train* and *test* parts must also be done randomly again (separation percentage is the default 70).
 
 *  The following code should also do just like the ```show()``` method of your class.
   ```c++
@@ -207,10 +207,10 @@ For the training process, in each iterations we do the followings:
 In all above discussion we did not mention what our activation functions (f) can be. For each layer we assume all the neurons have the same activation function. We use one of the following 2 famous activation functions for each layer.
   * Sigmoid
 
-  <img src="stuff/hw4f6.png" width="400" class="center" />
+  <img src="stuff/hw4f6.png" width="250" class="center" />
 
   * Linear
-  <img src="stuff/hw4f7.png" width="400" class="center" />
+  <img src="stuff/hw4f7.png" width="250" class="center" />
 
 Now you can simply implement the NeuralNet class. Your NeuralNet class must have the following member variables.
 
@@ -227,14 +227,14 @@ Now you can simply implement the NeuralNet class. Your NeuralNet class must have
       Matrix s1; // s vector for layer 1
       Matrix s2; // s vector for layer 2 
   ```
-As mentioned above in the training algorithm.
+  As mentioned above in the training algorithm.
 
 *  
   ```c++
   const char* af1{"Sigmoid"};
   const char* af2{"Sigmoid"};
   ```
-Activation functions of the second and the third layer. It can be any of the following activation functions.
+  Activation functions of the second and the third layer. It can be any of the following activation functions.
   *  "Sigmoid"
   *  "Linear"
 
@@ -242,33 +242,33 @@ Activation functions of the second and the third layer. It can be any of the fol
   ```c++
   size_t hidden_layer_neurons{3};
   ```
-No of neurons in the hidden layer of the network.
+  No of neurons in the hidden layer of the network.
 
 *  
   ```c++
   double lr{0.01};
   ```
-Learning rate for the training algorithm.
+  Learning rate for the training algorithm.
 
 *  
   ```c++
   size_t max_iters{1000};
   ```
-Maximum iterations before convergence to stop.
+  Maximum iterations before convergence to stop.
 
 *  
   ```c++
   double min_loss{0.01};
   ```
-Minimum test loss before convergence to stop.
+  Minimum test loss before convergence to stop.
 
 *  
   ```c++
   Dataset dataset;
   ```
-Given dataset to the network.
+  Given dataset to the network.
 
-Your NeuralNet class should also have the following member functions.
+  Your NeuralNet class should also have the following member functions.
 
 *  
   ```c++
@@ -278,25 +278,25 @@ Your NeuralNet class should also have the following member functions.
   ```c++
   Matrix forwardPropagate(Matrix& input);
   ```
-This function gets a sample input for the neural net and do the forward propagations process. Finally, it returns the output of the network as a Matrix object.
+  This function gets a sample input for the neural net and do the forward propagations process. Finally, it returns the output of the network as a Matrix object.
 
 *  
   ```c++
   void backPropagate(Matrix& input, Matrix& target);
   ```
-This functions does the backpropagation for a sample data. It gets a sample input and its corresponding target and does the forementioned backpropagation algorithm to update weights and biases.
+  This functions does the backpropagation for a sample data. It gets a sample input and its corresponding target and does the forementioned backpropagation algorithm to update weights and biases.
 
 *  
   ```c++
   double trainLoss();
   ```
-This function computes the average loss function on the train part of dataset.
+  This function computes the average loss function on the train part of dataset.
 
 *  
   ```c++
   double testLoss();
   ```
-This function computes the average loss function on the test part of dataset.
+  This function computes the average loss function on the test part of dataset.
 
 *  
   ```c++
@@ -309,13 +309,13 @@ This function computes the average loss function on the test part of dataset.
       Matrix getB1();
       Matrix getB2();
   ```
-Setter and getter functions of weights and biases of the network.
+  Setter and getter functions of weights and biases of the network.
 
 * 
   ```c++
   Result fit();
   ```
-This function does all the training process of the neural network. In each iteration, it takes a random sample from the *train* part of the dataset. It does a forward propagation with it and afterward it backpropagates to update weights and biases. And these operations is repeated for each iteration until convergence.
+  This function does all the training process of the neural network. In each iteration, it takes a random sample from the *train* part of the dataset. It does a forward propagation with it and afterward it backpropagates to update weights and biases. And these operations is repeated for each iteration until convergence.
 
   After training has been done, it makes a ```Result``` object (descripted below) in which it gives a report of the training process.
 
@@ -323,7 +323,7 @@ This function does all the training process of the neural network. In each itera
   ```c++
   void show();
   ``` 
-This function shows a description of the neural network like the following figure.
+  This function shows a description of the neural network like the following figure.
 
   <img src="https://drive.google.com/uc?id=1xnTRHw0UuZ3QabzI4tEpTySIoLbrvKi5" width="400">
 
