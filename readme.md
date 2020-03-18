@@ -210,7 +210,7 @@ In all above discussion we did not mention what our activation functions (f) can
   <img src="stuff/hw4f6.png" width="250" class="center" />
 
   * Linear
-  <img src="stuff/hw4f7.png" width="250" class="center" />
+  <img src="stuff/hw4f7.png" width="150" class="center" />
 
 Now you can simply implement the NeuralNet class. Your NeuralNet class must have the following member variables.
 
@@ -325,7 +325,7 @@ Now you can simply implement the NeuralNet class. Your NeuralNet class must have
   ``` 
   This function shows a description of the neural network like the following figure.
 
-  <img src="https://drive.google.com/uc?id=1xnTRHw0UuZ3QabzI4tEpTySIoLbrvKi5" width="400">
+  <img src="stuff/hw4f10.png" width="400" class="center" />
 
 *  The following code should also do just like the ```show()``` method of your class.
   ```c++
@@ -345,7 +345,7 @@ This tiny class gives a report of the training process of a neural network. It h
       const char* af1;
       const char* af2;
   ```
-All of these variables are discussed in the NeuralNet class.
+  All of these variables are discussed in the NeuralNet class.
 
 The following member functions are to be implemented.
 
@@ -382,7 +382,7 @@ The following member functions are to be implemented.
   ```c++
   void show();
   ``` 
-This function shows a description of the result object like the following figure.
+  This function shows a description of the result object like the following figure.
 
   <img src="stuff/hw4f10.png" width="400" class="center" />
 
@@ -398,25 +398,25 @@ You must implement the following functions too. They all must be implemented in 
   ```c++
   Dataset loadFuncDataset(const char* filename);
   ```
-This function gets a csv filename and turn it into a dataset. Note that it is assumed that the data is for a function with single output and multiple (or single) input. Each row of the csv file is a data sample and the last column is the target, other columns are the input (like previous homeworks).
+  This function gets a csv filename and turn it into a dataset. Note that it is assumed that the data is for a function with single output and multiple (or single) input. Each row of the csv file is a data sample and the last column is the target, other columns are the input (like previous homeworks).
 
 * 
   ```c++
   std::vector<Result> testNeuralNets(Dataset& dataset, std::vector<size_t>& hidden_neurons, double lr=0.01, size_t max_iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
   ```
-This function generates a bunch of neural networks with a given dataset. For each neural network, the no of hidden layers must be one of the numbers in the ```hidden_neurons``` vector given to the function. In other words, for each number in ```hidden_neurons``` vector, you generate a NeuralNet object with than number of hidden neurons. Each neural net must train. Hence you have a bunch of results. Just return a vector containing those results.
+  This function generates a bunch of neural networks with a given dataset. For each neural network, the no of hidden layers must be one of the numbers in the ```hidden_neurons``` vector given to the function. In other words, for each number in ```hidden_neurons``` vector, you generate a NeuralNet object with than number of hidden neurons. Each neural net must train. Hence you have a bunch of results. Just return a vector containing those results.
 
 *  
   ```c++
   Result findBestNeuralNet(Dataset& dataset, std::vector<size_t>& hidden_neurons, double lr=0.01, size_t max_iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
   ```
-Like the last function, you generate a bunch of neural networks and then return the best result (the one with the least test loss).
+  Like the last function, you generate a bunch of neural networks and then return the best result (the one with the least test loss).
 
 * 
   ```c++
   void estimateFunction(const char* filename, size_t hidden_neurons_no);
   ```
-This function gets a csv filename, generate a dataset from it. After that, it creates a neural net with the given number of hidden layers (all other arguments of the neural net must be default ones) and show the comparison between neural net outputs and target values in a beautiful way like the below figure. Note that it is assumed that the function has a single variable output and can have as many inputs as possible.
+  This function gets a csv filename, generate a dataset from it. After that, it creates a neural net with the given number of hidden layers (all other arguments of the neural net must be default ones) and show the comparison between neural net outputs and target values in a beautiful way like the below figure. Note that it is assumed that the function has a single variable output and can have as many inputs as possible.
 
   <img src="stuff/hw4f8.png" width="400" class="center" />
   
