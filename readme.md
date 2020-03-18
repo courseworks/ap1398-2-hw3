@@ -153,9 +153,10 @@ This function shows some properties of the dataset, such as number of samples, n
 
 
 *  ‍‍‍‍‍You must also write the ```[ ]```operator for your class such that, for example, for a dataset object of this class ```dataset[10][0]``` returns the input part of the 11-th sample of dataset (```inputs``` variable) as a Matrix object and ```dataset[10][1]``` returns the target part of the 11-th sample of dataset (```targets``` variable) as a Matrix object. So, the following code must return the value of the first dimension of the input part of the 11-th sample of dataset.
-  ```c++
-  std::cout<<dataset[10][0][0][0];
-  ```
+  
+    ```c++
+    std::cout<<dataset[10][0][0][0];
+    ```
 
 *  
   ```c++
@@ -169,7 +170,7 @@ This function shows some properties of the dataset, such as number of samples, n
   ```
   **Question1**: How do you do this? In order to access private variables of the Dataset object, what would you do without using *getter* functions? Explain it.
   
-<img src="https://drive.google.com/uc?id=1kfszEBX0bclfNw0avfD7Q3L52x124UTO" width="400">
+<img src="stuff/meme2.jpg" width="400" class="center" />
 
 
 # NeuralNet Class
@@ -178,24 +179,24 @@ In this class, you'll implement a neural network so that you can train it easily
 ## Notation and Literature
 The fundamental unit of each neural network is called **Neuron**. Each neuron gets an input vector (**p**) it multiplies each element of the input in a scalar. These scalars together make the **Weights** of the neuron. The products of input elements and weights are summed and a bias term is added to the result. So far, the result is shown by *n*. Then this *n* goes into a function (called **Activation Function**) and generates the ouput of the neuron (*a*). Below, you can see the model of a neuron.
 
-<img src="https://drive.google.com/uc?id=1OJBpPxkd_ZJ8WIYGZQTzsv1Au0sNdJq1" width="400">
+<img src="stuff/hw4f1.png" width="400" class="center" />
 
 A bunch of neurons with the same input vector **p** make a **layer**. So we can form a vector **n** and a vector **a** for the whole layer. Each element of these vectors corresponds to one of the neurons. So **a** is the ouput vector of the layer (output of all neurons stacked together in a vector). The output of a layer can be the input to the next layer and so on. So we use superscripts for the no of layers in our notation.
 
-<img src="https://drive.google.com/uc?id=1Q9zi7EiyzRjVfCqTLHwmOToBkjS0kJ-d" width="350">
+<img src="stuff/hw4f2.png" width="400" class="center" />
 
 ## Forward Propagation
 As mentiond before, a neural net gets an input and generate an output from that. But how? Well the input is given to the first layer and the output of the first layered is found after that. The the output of the first layer goes to the second layer as its input. The output of the second layer is then found easily. This process goes on until the last layer ouput is found which is the output of the neural net. This process is called **forward propagation**. Below you can see the relations of forward propagation for a network with two layers.
 
-<img src="https://drive.google.com/uc?id=1z-2hSFdh97qmkHjymOA_UT8D6wzLf4VQ" width="350">
+<img src="stuff/hw4f3.png" width="400" class="center" />
 
 ## Backpropagation
 The main problem to solve for a neural net is to find the proper weights and biases. As you can remember from homework 1, updating weights and biases is done by minimizing a loss function. In this homework, the loss function is just the same as the one in homework 1 which is average mean square of errors. This process is called **backpropagation**. We just consider backpropagation for a network with 2 layers here. The general case would be discussed in the TA class soon. Given a sample input and a sample target, you update the weights as below.
 
-<img src="https://drive.google.com/uc?id=1KcUlpBZugRQY9RyYdXBRKj12OCaVVj4C" width="350">
+<img src="stuff/hw4f4.png" width="400" class="center" />
 
 
-<img src="https://drive.google.com/uc?id=1xNMxHYWpysumeI4nfKWdUxMZT2JGEk2o" width="350">
+<img src="stuff/hw4f5.png" width="400" class="center" />
 
 ## Training the Network
 For the training process, in each iterations we do the followings:
@@ -206,10 +207,10 @@ For the training process, in each iterations we do the followings:
 In all above discussion we did not mention what our activation functions (f) can be. For each layer we assume all the neurons have the same activation function. We use one of the following 2 famous activation functions for each layer.
   * Sigmoid
 
-  <img src="https://drive.google.com/uc?id=1POhOrQchFKrfHcLxHQ5AVLTcsa3cGQJP" width="250">
+  <img src="stuff/hw4f6.png" width="400" class="center" />
 
   * Linear
-  <img src="https://drive.google.com/uc?id=1sN86v_BAujjmJ-FChgwoOlb9qfsdFbVI" width="120">
+  <img src="stuff/hw4f7.png" width="400" class="center" />
 
 Now you can simply implement the NeuralNet class. Your NeuralNet class must have the following member variables.
 
@@ -383,7 +384,7 @@ The following member functions are to be implemented.
   ``` 
 This function shows a description of the result object like the following figure.
 
-  <img src="https://drive.google.com/uc?id=1zVg0tjdoQDgE_nNOaXurx5AzxQlHlXk6" width="400">
+  <img src="stuff/hw4f10.png" width="400" class="center" />
 
 *  The following code should also do just like the ```show()``` method of your class.
   ```c++
@@ -417,9 +418,9 @@ Like the last function, you generate a bunch of neural networks and then return 
   ```
 This function gets a csv filename, generate a dataset from it. After that, it creates a neural net with the given number of hidden layers (all other arguments of the neural net must be default ones) and show the comparison between neural net outputs and target values in a beautiful way like the below figure. Note that it is assumed that the function has a single variable output and can have as many inputs as possible.
 
-  <img src="https://drive.google.com/uc?id=1FcHBmWlQHC4--5MPRzvWWPWCQtCuBFxy" width="500">
+  <img src="stuff/hw4f8.png" width="400" class="center" />
   
 
-  <img src="https://drive.google.com/uc?id=19GvUC4-rK4yi9QUsxHZ5LpVWVxto1Dlw" width="400">
+  <img src="stuff/meme3.jpg" width="400" class="center" />
 
 
