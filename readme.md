@@ -268,7 +268,7 @@ Now you can simply implement the NeuralNet class. Your NeuralNet class must have
   ```
   Given dataset to the network.
 
-  Your NeuralNet class should also have the following member functions.
+Your NeuralNet class should also have the following member functions.
 
 *  
   ```c++
