@@ -330,4 +330,62 @@ This function shows a description of the neural network like the following figur
   ```c++
   std::cout<<nn<<std::endl;  \\ nn is a NeuralNet object
   ```
+  
+# Result Class
+This tiny class gives a report of the training process of a neural network. It has the following member variables.
+
+* `
+  ``c++
+      double train_loss;
+      double test_loss;
+      size_t no_of_hidden_neurons;
+      double lr{};
+      size_t iters{};
+      const char* af1;
+      const char* af2;
+  ```
+All of these variables are discussed in the NeuralNet class.
+
+The following member functions are to be implemented.
+
+* 
+  ```c++
+    Result(double train_loss, double test_loss, size_t no_of_hidden_neurons, double lr = 0.01, size_t iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
+  ```
+* 
+  ```c++
+    Result(double test_loss);
+  ```
+  In this constructor, you just get the test loss. In this case set train loss to -1, no of hidden neurons to 0 and all other variables must have their default values.
+
+* You must also implement comparison operators so that all the codes below can run without any errors. Note that between two Result objects, the one with less test_loss is considered to be smaller than the other one.
+  ```c++
+  std::cout<< result_A < result_B << std::endl;
+  std::cout<< result_A >= result_B << std::endl;
+  ```
+ **Question2**: How would you implement *all* comparison operators without actually coding all of them? Explain how it works.
+
+  **Question3**: Right now the following code runs without any error in your program. Tell us why? We want the compiler not to compile it, what should we do to the constructor? Do you know any other way?
+  
+  ```c++
+  Result r1{15};
+  if (r1>10)std::cout<<"Hi there!"<<std::endl;
+
+* 
+  ```c++
+  double getTestLoss();
+  ```
+
+* 
+  ```c++
+  void show();
+  ``` 
+This function shows a description of the result object like the following figure.
+
+  <img src="https://drive.google.com/uc?id=1zVg0tjdoQDgE_nNOaXurx5AzxQlHlXk6" width="400">
+
+*  The following code should also do just like the ```show()``` method of your class.
+  ```c++
+  std::cout<<r<<std::endl;  \\ r is a Result object
+  ```
 
