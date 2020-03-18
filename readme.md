@@ -334,8 +334,8 @@ This function shows a description of the neural network like the following figur
 # Result Class
 This tiny class gives a report of the training process of a neural network. It has the following member variables.
 
-* `
-  ``c++
+* 
+  ```c++
       double train_loss;
       double test_loss;
       size_t no_of_hidden_neurons;
@@ -352,6 +352,7 @@ The following member functions are to be implemented.
   ```c++
     Result(double train_loss, double test_loss, size_t no_of_hidden_neurons, double lr = 0.01, size_t iters = 10000, const char* af1 = "Sigmoid", const char* af2 = "Linear");
   ```
+
 * 
   ```c++
     Result(double test_loss);
