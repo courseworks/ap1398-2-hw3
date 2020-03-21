@@ -145,6 +145,12 @@ Dataset class must have the following member functions too.
 
 *  
   ```c++
+  void shuffle();
+  ```
+  This functions rearranges the data samples in the all matrices of the class in a random manner. So after calling it, the order of samples in columns must change randomly.
+
+*  
+  ```c++
   void show();
   ```
   This function shows some properties of the dataset, such as number of samples, number of train samples and test samples, input and target dimensions in a beautiful way like the following figure.
