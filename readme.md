@@ -88,7 +88,7 @@ Dataset class must have the following member functions too.
   ```c++
   Dataset(Matrix inputs, Matrix targets, double percentage=70);
   ```
-  Note that in this constructor, you must not change the order of samples of dataset in the ```inputs``` and ```targets``` variables.
+  Note that in this constructor, you must not change the order of samples of dataset in the ```inputs``` and ```targets``` variables. And in the constructor, test samples should be the last samples of input and target matrices.
 
 *  
   ```c++
