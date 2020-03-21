@@ -406,7 +406,7 @@ You must implement the following functions too. They all must be implemented in 
   ```c++
   Dataset loadFuncDataset(const char* filename);
   ```
-  This function gets a csv filename and turn it into a dataset. Note that it is assumed that the data is for a function with single output and multiple (or single) input. Each row of the csv file is a data sample and the last column is the target, other columns are the input (like previous homeworks).
+  This function gets a csv filename and turn it into a dataset. Note that it is assumed that the data is for a function with single output and multiple (or single) input. Each column of the csv file is a data sample and the last row is the target, other rows are the inputs.
 
 * 
   ```c++
