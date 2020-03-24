@@ -379,7 +379,8 @@ The following member functions are to be implemented.
   ```c++
   Result r1{15};
   if (r1>10)std::cout<<"Hi there!"<<std::endl;
-
+  ```
+  
 * 
   ```c++
   double getTestLoss();
