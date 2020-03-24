@@ -392,7 +392,7 @@ The following member functions are to be implemented.
   ``` 
   This function shows a description of the result object like the following figure.
 
-  <img src="stuff/hw4f10.png" width="400" class="center" />
+  <img src="stuff/hw4f11.png" width="400" class="center" />
 
 *  The following code should also do just like the ```show()``` method of your class.
   
